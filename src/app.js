@@ -6,6 +6,8 @@ const geoCode = require('./utils/geocode')
 
 const app = express()
 
+const port = process.env.PORT||3000
+
 //Define paths for express config
 const publicdirectorypath=path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -79,6 +81,6 @@ app.get('/help/*',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('error',{title:"404 Page Error",message:'Page not Found',name:'Arthur Gichuhi'})
 })
-app.listen(3000,()=>{
-    console.log("Server started on port 3000")
+app.listen(port,()=>{
+    console.log("Server started on port"+port)
 })
