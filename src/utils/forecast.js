@@ -10,9 +10,12 @@ request({url, json:true},(error, response)=>{
      callback('Unable to find location. Try another search',undefined) 
    }
     else{
-        callback(undefined,response.body.current.weather_descriptions[0]+
-        '.It is currently '+response.body.current.temperature+
-        ' degrees out')
+        callback(undefined,'It is currently '+response.body.current.weather_descriptions[0]+
+        '.The temprature is '+response.body.current.temperature+
+        ' degrees out but it feels like '+response.body.current.feelslike+
+        ' degrees. The humidity of the area is '+response.body.current.humidity+
+        '% with and '+response.body.current.precip+
+        '% chances of rainfall and a cloud cover of '+response.body.current.cloudcover+'%.' )
     }})}
 
 
